@@ -37,18 +37,18 @@ const Login: React.FC = () => {
         <div className="min-h-screen flex items-center justify-center p-4">
             {/* Background decorations */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/30 rounded-full blur-3xl" />
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-500/30 rounded-full blur-3xl" />
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-600/20 rounded-full blur-3xl" />
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-red-500/20 rounded-full blur-3xl" />
             </div>
 
             <div className="w-full max-w-md relative">
                 {/* Logo */}
                 <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-red-500 mb-4">
                         <AcademicCapIcon className="w-10 h-10 text-white" />
                     </div>
-                    <h1 className="text-3xl font-bold gradient-text">Student Mark Tracker</h1>
-                    <p className="text-slate-400 mt-2">Sign in to your account</p>
+                    <h1 className="text-3xl font-bold text-white">Student Mark Tracker</h1>
+                    <p className="text-neutral-400 mt-2">Sign in to your account</p>
                 </div>
 
                 {/* Login Form */}
@@ -59,7 +59,7 @@ const Login: React.FC = () => {
                                 Email Address
                             </label>
                             <div className="relative">
-                                <EnvelopeIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                                <EnvelopeIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                                 <input
                                     id="email"
                                     type="email"
@@ -77,7 +77,7 @@ const Login: React.FC = () => {
                                 Password
                             </label>
                             <div className="relative">
-                                <LockClosedIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                                <LockClosedIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                                 <input
                                     id="password"
                                     type={showPassword ? 'text' : 'password'}
@@ -90,7 +90,7 @@ const Login: React.FC = () => {
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300"
                                 >
                                     {showPassword ? (
                                         <EyeSlashIcon className="w-5 h-5" />
@@ -118,11 +118,11 @@ const Login: React.FC = () => {
                     </form>
 
                     <div className="mt-6 text-center">
-                        <p className="text-slate-400">
+                        <p className="text-neutral-400">
                             Don't have an account?{' '}
                             <Link
                                 to="/register"
-                                className="text-primary-400 hover:text-primary-300 font-medium"
+                                className="text-red-400 hover:text-red-300 font-medium"
                             >
                                 Sign up
                             </Link>
@@ -131,20 +131,20 @@ const Login: React.FC = () => {
                 </div>
 
                 {/* Demo credentials */}
-                <div className="mt-6 card bg-slate-800/30">
-                    <p className="text-sm text-slate-400 text-center mb-3">
+                <div className="mt-6 card bg-neutral-900/50">
+                    <p className="text-sm text-neutral-400 text-center mb-3">
                         Demo Credentials
                     </p>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                         <div className="text-center">
-                            <p className="text-primary-400 font-medium">Teacher</p>
-                            <p className="text-slate-500">teacher@demo.com</p>
-                            <p className="text-slate-500">demo123</p>
+                            <p className="text-red-400 font-medium">Teacher</p>
+                            <p className="text-neutral-500">teacher@demo.com</p>
+                            <p className="text-neutral-500">demo123</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-secondary-400 font-medium">Student</p>
-                            <p className="text-slate-500">student@demo.com</p>
-                            <p className="text-slate-500">demo123</p>
+                            <p className="text-white font-medium">Student</p>
+                            <p className="text-neutral-500">alice@demo.com</p>
+                            <p className="text-neutral-500">demo123</p>
                         </div>
                     </div>
                 </div>

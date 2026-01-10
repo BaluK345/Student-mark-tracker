@@ -55,29 +55,29 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 z-50 h-full w-72 bg-slate-900/95 backdrop-blur-xl border-r border-slate-700/50 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 left-0 z-50 h-full w-72 bg-black/95 backdrop-blur-xl border-r border-neutral-800 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 {/* Logo */}
-                <div className="flex items-center gap-3 px-6 py-6 border-b border-slate-700/50">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                <div className="flex items-center gap-3 px-6 py-6 border-b border-neutral-800">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-500 flex items-center justify-center">
                         <AcademicCapIcon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                         <h1 className="font-bold text-white">Mark Tracker</h1>
-                        <p className="text-xs text-slate-400">Student Management</p>
+                        <p className="text-xs text-neutral-500">Student Management</p>
                     </div>
                 </div>
 
                 {/* User Info */}
-                <div className="px-6 py-4 border-b border-slate-700/50">
+                <div className="px-6 py-4 border-b border-neutral-800">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center text-white font-semibold">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-semibold">
                             {user?.full_name?.charAt(0).toUpperCase() || 'U'}
                         </div>
                         <div>
                             <p className="text-white font-medium">{user?.full_name}</p>
-                            <p className="text-xs text-slate-400 capitalize">{user?.role}</p>
+                            <p className="text-xs text-neutral-500 capitalize">{user?.role}</p>
                         </div>
                     </div>
                 </div>

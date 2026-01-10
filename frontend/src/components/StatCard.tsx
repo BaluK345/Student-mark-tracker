@@ -21,24 +21,24 @@ const StatCard: React.FC<StatCardProps> = ({
     color = 'primary',
 }) => {
     const colorClasses = {
-        primary: 'from-primary-500/20 to-primary-600/20 border-primary-500/30',
-        success: 'from-emerald-500/20 to-emerald-600/20 border-emerald-500/30',
-        warning: 'from-amber-500/20 to-amber-600/20 border-amber-500/30',
+        primary: 'from-red-500/10 to-red-600/10 border-red-500/20',
+        success: 'from-white/5 to-white/10 border-white/20',
+        warning: 'from-neutral-800/50 to-neutral-900/50 border-neutral-700',
         danger: 'from-red-500/20 to-red-600/20 border-red-500/30',
     };
 
     const iconColorClasses = {
-        primary: 'text-primary-400',
-        success: 'text-emerald-400',
-        warning: 'text-amber-400',
+        primary: 'text-red-400',
+        success: 'text-white',
+        warning: 'text-neutral-400',
         danger: 'text-red-400',
     };
 
     const valueColorClasses = {
-        primary: 'from-primary-400 to-blue-400',
-        success: 'from-emerald-400 to-green-400',
-        warning: 'from-amber-400 to-yellow-400',
-        danger: 'from-red-400 to-pink-400',
+        primary: 'from-red-400 to-red-500',
+        success: 'from-white to-neutral-300',
+        warning: 'from-neutral-300 to-neutral-400',
+        danger: 'from-red-400 to-red-500',
     };
 
     return (
@@ -47,29 +47,29 @@ const StatCard: React.FC<StatCardProps> = ({
         >
             <div className="flex items-start justify-between">
                 <div>
-                    <p className="text-sm text-slate-400 mb-1">{title}</p>
+                    <p className="text-sm text-neutral-400 mb-1">{title}</p>
                     <p
                         className={`text-3xl font-bold bg-gradient-to-r ${valueColorClasses[color]} bg-clip-text text-transparent`}
                     >
                         {value}
                     </p>
                     {subtitle && (
-                        <p className="text-sm text-slate-500 mt-1">{subtitle}</p>
+                        <p className="text-sm text-neutral-500 mt-1">{subtitle}</p>
                     )}
                     {trend && (
                         <div className="flex items-center gap-1 mt-2">
                             <span
-                                className={`text-sm font-medium ${trend.isPositive ? 'text-emerald-400' : 'text-red-400'
+                                className={`text-sm font-medium ${trend.isPositive ? 'text-white' : 'text-red-400'
                                     }`}
                             >
                                 {trend.isPositive ? '↑' : '↓'} {Math.abs(trend.value)}%
                             </span>
-                            <span className="text-xs text-slate-500">from last month</span>
+                            <span className="text-xs text-neutral-500">from last month</span>
                         </div>
                     )}
                 </div>
                 <div
-                    className={`p-3 rounded-xl bg-slate-800/50 ${iconColorClasses[color]}`}
+                    className={`p-3 rounded-xl bg-neutral-800/50 ${iconColorClasses[color]}`}
                 >
                     {icon}
                 </div>

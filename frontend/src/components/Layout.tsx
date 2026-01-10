@@ -26,11 +26,11 @@ const Layout: React.FC = () => {
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
             {/* Mobile header */}
-            <header className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50">
+            <header className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-black/95 backdrop-blur-xl border-b border-neutral-800">
                 <div className="flex items-center justify-between px-4 py-4">
                     <button
                         onClick={() => setSidebarOpen(true)}
-                        className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-2 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors"
                     >
                         <Bars3Icon className="w-6 h-6" />
                     </button>
