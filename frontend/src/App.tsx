@@ -11,6 +11,9 @@ import Marks from './pages/Marks';
 import FailedStudents from './pages/FailedStudents';
 import Reports from './pages/Reports';
 import MyReport from './pages/MyReport';
+import DataUpload from './pages/DataUpload';
+import Analytics from './pages/Analytics';
+import EmailReports from './pages/EmailReports';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
               <Route path="/failed-students" element={<FailedStudents />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/my-report" element={<MyReport />} />
+              <Route path="/data-upload" element={<DataUpload />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/email-reports" element={<EmailReports />} />
             </Route>
 
             {/* Redirect root to dashboard */}
