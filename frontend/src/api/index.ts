@@ -20,6 +20,10 @@ import type {
     FailedStudent,
     StudentReport,
     ClassReport,
+    SMTPSettings,
+    SMTPSettingsUpdateRequest,
+    UiPathSettings,
+    UiPathSettingsUpdateRequest,
 } from '../types';
 
 // Auth API
@@ -178,5 +182,28 @@ export const reportsApi = {
     getStudentReportHtml: (studentId: number, examType: string = 'Final'): string => {
         const token = localStorage.getItem('token');
         return `${import.meta.env.VITE_API_URL || 'http://localhost:8000/api'}/reports/student/${studentId}/html?exam_type=${examType}&token=${token}`;
+    },
+};
+
+// Email settings API
+export const emailSettingsApi = {
+    getSmtpSettings: async (): Promise<SMTPSettings> => {
+        const response = await api.get('/email-settings/smtp');
+        return response.data;
+    },
+
+    updateSmtpSettings: async (data: SMTPSettingsUpdateRequest): Promise<SMTPSettings> => {
+        const response = await api.put('/email-settings/smtp', data);
+        return response.data;
+    },
+
+    getUiPathSettings: async (): Promise<UiPathSettings> => {
+        const response = await api.get('/email-settings/uipath');
+        return response.data;
+    },
+
+    updateUiPathSettings: async (data: UiPathSettingsUpdateRequest): Promise<UiPathSettings> => {
+        const response = await api.put('/email-settings/uipath', data);
+        return response.data;
     },
 };

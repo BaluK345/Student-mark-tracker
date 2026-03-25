@@ -287,7 +287,8 @@ async def send_student_reports(
                     parent_email=student.parent_email,
                     parent_name=student.parent_name or "Parent",
                     student_name=student.user.full_name,
-                    report_html=report_html
+                    report_html=report_html,
+                    db=db
                 )
                 
                 if success:

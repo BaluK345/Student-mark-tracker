@@ -207,3 +207,48 @@ export interface MarkListResponse {
     marks: Mark[];
     total: number;
 }
+
+// SMTP Settings types
+export interface SMTPSettings {
+    id?: number;
+    host: string;
+    port: number;
+    username: string | null;
+    from_email: string | null;
+    from_name: string;
+    use_tls: boolean;
+    is_enabled: boolean;
+    has_password: boolean;
+    source: 'database' | 'environment';
+    updated_at?: string;
+}
+
+export interface SMTPSettingsUpdateRequest {
+    host: string;
+    port: number;
+    username?: string;
+    password?: string;
+    from_email?: string;
+    from_name: string;
+    use_tls: boolean;
+    is_enabled: boolean;
+}
+
+export interface UiPathSettings {
+    id?: number;
+    webhook_url: string | null;
+    tenant_name: string | null;
+    process_name: string | null;
+    is_enabled: boolean;
+    has_api_token: boolean;
+    source: 'database';
+    updated_at?: string;
+}
+
+export interface UiPathSettingsUpdateRequest {
+    webhook_url: string;
+    api_token?: string;
+    tenant_name?: string;
+    process_name?: string;
+    is_enabled: boolean;
+}

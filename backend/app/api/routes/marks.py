@@ -39,7 +39,8 @@ async def check_and_send_fail_alert(
             subject_name=subject.name,
             marks_obtained=mark.marks_obtained,
             max_marks=subject.max_marks,
-            pass_marks=subject.pass_marks
+            pass_marks=subject.pass_marks,
+            db=db
         )
 
 
