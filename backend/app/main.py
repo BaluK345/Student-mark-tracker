@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 
 from app.core.config import settings
 from app.core.database import engine, Base
-from app.api.routes import auth, students, subjects, marks, reports, data
+from app.api.routes import auth, students, subjects, marks, reports, data, settings as settings_route
 
 # Import models to ensure they're registered
 from app.models import user, student, subject, mark
@@ -58,6 +58,7 @@ app.include_router(subjects.router, prefix="/api")
 app.include_router(marks.router, prefix="/api")
 app.include_router(reports.router, prefix="/api")
 app.include_router(data.router, prefix="/api/data", tags=["Data & Analytics"])
+app.include_router(settings_route.router, prefix="/api")
 
 
 @app.get("/")

@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
     # Database
-    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/student_tracker"
+    DATABASE_URL: str = "sqlite:///./student_tracker.db"
     
     # JWT Authentication
     SECRET_KEY: str = "your-super-secret-key-change-in-production"
@@ -23,6 +23,12 @@ class Settings(BaseSettings):
     
     # Frontend URL for CORS
     FRONTEND_URL: str = "http://localhost:5173"
+    
+    # UiPath Configuration
+    UIPATH_ORCHESTRATOR_URL: Optional[str] = None
+    UIPATH_PAT_TOKEN: Optional[str] = None
+    UIPATH_FOLDER_ID: Optional[str] = None
+    UIPATH_PROCESS_NAME: Optional[str] = None
     
     class Config:
         env_file = ".env"

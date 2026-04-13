@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
 from typing import List, Optional
+import logging
 
 from app.core.database import get_db
 from app.core.security import get_current_teacher, get_current_user
@@ -17,8 +18,25 @@ from app.schemas.mark import (
     FailedStudentResponse
 )
 from app.services.email_service import send_fail_alert_email
+from app.services.fail_alert_service import send_fail_alert_email_with_fallback
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/marks", tags=["Marks"])
+
+
+# Global variable to hold UiPath configuration (from settings route)
+_uipath_config = None
+
+
+def set_uipath_config(config: dict):
+    """Set UiPath configuration for fail alerts."""
+    global _uipath_config
+    _uipath_config = config
+
+
+def get_uipath_config() -> dict:
+    """Get UiPath configuration."""
+    return _uipath_config or {}
 
 
 async def check_and_send_fail_alert(
@@ -27,10 +45,16 @@ async def check_and_send_fail_alert(
     student: Student,
     subject: Subject
 ):
-    """Check if student failed and send email alert to parent."""
+    """Check if student failed and send email alert to parent via UiPath or SMTP."""
     if mark.status == "Fail" and student.parent_email:
         user = db.query(User).filter(User.id == student.user_id).first()
-        await send_fail_alert_email(
+        
+        # Get UiPath configuration
+        uipath_config = get_uipath_config()
+        
+        # Send via UiPath if enabled, otherwise fallback to SMTP
+        await send_fail_alert_email_with_fallback(
+            db_session=db,
             parent_email=student.parent_email,
             parent_name=student.parent_name or "Parent/Guardian",
             student_name=user.full_name if user else "Student",
@@ -39,7 +63,8 @@ async def check_and_send_fail_alert(
             subject_name=subject.name,
             marks_obtained=mark.marks_obtained,
             max_marks=subject.max_marks,
-            pass_marks=subject.pass_marks
+            pass_marks=subject.pass_marks,
+            uipath_config=uipath_config
         )
 
 

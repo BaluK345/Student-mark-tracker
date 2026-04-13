@@ -10,6 +10,8 @@ import {
     ExclamationTriangleIcon,
     ArrowRightOnRectangleIcon,
     AcademicCapIcon,
+    Cog6ToothIcon,
+    SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 interface SidebarProps {
@@ -34,6 +36,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         { to: '/marks', icon: ClipboardDocumentListIcon, label: 'Enter Marks' },
         { to: '/failed-students', icon: ExclamationTriangleIcon, label: 'Failed Students' },
         { to: '/reports', icon: ChartBarIcon, label: 'Reports' },
+        { to: '/smtp-config', icon: Cog6ToothIcon, label: 'SMTP Configuration' },
+        { to: '/uipath-config', icon: SparklesIcon, label: 'UiPath Automation' },
     ];
 
     const studentLinks = [

@@ -14,6 +14,8 @@ import MyReport from './pages/MyReport';
 import DataUpload from './pages/DataUpload';
 import Analytics from './pages/Analytics';
 import EmailReports from './pages/EmailReports';
+import SmtpConfig from './pages/SmtpConfig';
+import UiPathConfig from './pages/UiPathConfig';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
               <Route path="/data-upload" element={<DataUpload />} />
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/email-reports" element={<EmailReports />} />
+              <Route path="/smtp-config" element={<SmtpConfig />} />
+              <Route path="/uipath-config" element={<UiPathConfig />} />
             </Route>
 
             {/* Redirect root to dashboard */}
